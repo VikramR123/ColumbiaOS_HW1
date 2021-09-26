@@ -11,13 +11,12 @@ void print_tree(struct task_struct *t, int level)
 	if (level == 0) {
 		spaces = "-- ";
 	} else {
-		int num_spaces;
-                num_spaces = 4 * min(level, 20);
-		//spaces = "\\_ ";
+		spaces = "\\_ ";
 		
-		spaces = "";
-		char c = ' ';
-		strncat(spaces, &c, num_spaces);
+		//spaces = "";
+		//char c = ' ';
+		//strncat(spaces, &c, num_spaces);
+		
 		//strcat(spaces, "\\_ "); 
 		//int num_spaces;
 		//spaces = "";
