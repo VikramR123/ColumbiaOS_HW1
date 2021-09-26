@@ -48,9 +48,9 @@ void delete_pokedex(void)
 	/* TODO: write your code here */
 	struct pokemon *pos, *q;
 
-	list_for_each_entry_safe(pos, q, &pokedex, list) {
-		list_del(&pos->list);
-	}
+	//list_for_each_entry_safe(pos, q, &pokedex, list) {
+	//	list_del(&pos->list);
+	//}
 }
 
 int pokedex_init(void)
