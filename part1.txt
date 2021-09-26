@@ -5,7 +5,10 @@ with '=' signs and keep lines to a max of 80 chars long.
 ================================== Q1 start ===================================
 1.  What actions does a kernel perform to context switch between processes?
 
-/* your answer */
+During a context switch, the OS executes code to save the register values and
+stack pointer of the currently-running process, then restore those registers
+for the desired process. Once the OS executes a return-from-trap instruction,
+the desired process will become the currently running one.
 
 =================================== Q1 end ====================================
 
@@ -14,7 +17,10 @@ with '=' signs and keep lines to a max of 80 chars long.
 2.  What process state does a process enter immediately after it terminates?
     What is this state for, and when does it leave this state?
 
-/* your answer */
+After running, a process can be placed in a final/zombie state, which allows
+other processes, usually the parent one, to check if it executed successfully
+by looking at the return code. Once finished, the parent will make one final
+call (wait()) to tell the OS to clean up the extinct process.
 
 =================================== Q2 end ====================================
 
@@ -23,7 +29,7 @@ with '=' signs and keep lines to a max of 80 chars long.
 3.  What is typeof? Is it a C language keyword, function, or macro? What does
     it do?
 
-/* your answer */
+It is a C language keyword, and is used to get a type at compile time. 
 
 =================================== Q3 end ====================================
 
@@ -31,7 +37,8 @@ with '=' signs and keep lines to a max of 80 chars long.
 ================================== Q4 start ===================================
 4.  What is offsetof? Is it a keyword, function, or macro? What does it do?
 
-/* your answer */
+It is a macro, and evaluates to the offset in bytes of a given member variable
+in a struct. 
 
 =================================== Q4 end ====================================
 
@@ -39,7 +46,9 @@ with '=' signs and keep lines to a max of 80 chars long.
 ================================== Q5 start ===================================
 5.  What does the container_of() macro do?
 
-/* your answer */
+It returns the parent structure of any given member variable. This is useful
+in C because you can easily find the parent structure of any given linked-list
+head.
 
 =================================== Q5 end ====================================
 
@@ -49,7 +58,8 @@ with '=' signs and keep lines to a max of 80 chars long.
     portable across C compilers because it uses GNU-specific language
     extensions. Can you identify what they are?
 
-/* your answer */
+A GNU C extension used by container_of is called statement expressions. This
+was most likely used to ensure type safety and prevent any related bugs. 
 
 =================================== Q6 end ====================================
 
@@ -59,6 +69,8 @@ with '=' signs and keep lines to a max of 80 chars long.
     __mptr) really necessary? Is it possible to rewrite the macro without it?
     What is the purpose of that 1st line?
 
-/* your answer */
+Yes it is necessary, because in C you must define type for every variable. 
+For this function, you will not always know the type of the container, and thus
+need the typeof to find the type at compile time. 
 
 =================================== Q7 end ====================================
