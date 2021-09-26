@@ -8,7 +8,7 @@ with '=' signs and keep lines to a max of 80 chars long.
 During a context switch, the OS executes code to save the register values and
 stack pointer of the currently-running process, then restore those registers
 for the desired process. Once the OS executes a return-from-trap instruction,
-the desired process will become the currently running one.
+the desired process will then become the currently running one.
 
 =================================== Q1 end ====================================
 
