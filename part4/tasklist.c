@@ -11,14 +11,21 @@ void print_tree(struct task_struct *t, int level)
 	if (level == 0) {
 		spaces = "-- ";
 	} else {
-		int i;
 		int num_spaces;
+                num_spaces = 4 * min(level, 20);
+		//spaces = "\\_ ";
+		
 		spaces = "";
-		num_spaces = 4 * min(level, 20);
-		for (i=0; i<num_spaces; i++) {
-			spaces = strcat(spaces, " ");
-		}
-		spaces = strcat(spaces, "\\_ ");
+		char c = ' ';
+		strncat(spaces, &c, num_spaces);
+		//strcat(spaces, "\\_ "); 
+		//int num_spaces;
+		//spaces = "";
+		//num_spaces = 4 * min(level, 20);
+		//for (i=0; i<num_spaces; i++) {
+		//	spaces = strcat(spaces, " ");
+		//}
+		//spaces = strcat(spaces, "\\_ ");
 	}
 
 	printk(KERN_INFO "%s[%d] %s\n", spaces, t->pid, t->comm);
